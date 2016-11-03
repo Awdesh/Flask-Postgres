@@ -11,7 +11,7 @@ class Device(db.Model):
     sim = db.Column(db.Integer)
     realm = db.Column(db.String)
 
-    def __init__(self, imei, name, realm, serial, sim):
+    def __init__(self, imei, name, serial, sim, realm):
         self.imei = imei
         self.name = name
         self.serial = serial

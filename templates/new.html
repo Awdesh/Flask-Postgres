@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="" method=post class="form-horizontal">
+    <h2>Create New Device</h2>
+    <div class="control-group">
+        <div class="controls">
+          <label for="deviceName" id="deviceName">DeviceName:</label>
+          <input type="text" id="deviceName" name="deviceName" class="input-xlarge"
+            placeholder="Please enter device's name" value="{{ request.form.deviceName }}"
+            required>
+          <label for="imei">IMEI:</label>
+          <input type="number" id="imei" name="imei" class="input-xlarge"
+            placeholder="Please enter device's IMEI" value="{{ request.form.imei }}"
+            required>
+          <label for="serial" id="deviceName">Serial:</label>
+          <input type="number" id="serial" name="serial" class="input-xlarge"
+            placeholder="Please enter device's Serial Number" value="{{ request.form.serial }}"
+            required>
+          <label for="sim" id="deviceName">SIM:</label>
+          <input type="number" id="sim" name="sim" class="input-xlarge"
+            placeholder="Please enter device's sim number" value="{{ request.form.sim }}"
+            required>
+          <label for="realm" id="deviceName">REALM:</label>
+          <input type="text" id="realm" name="realm" class="input-xlarge"
+            placeholder="Please enter device's realm" value="{{ request.form.realm }}"
+            required>
+        </div>
+    </div>
+ 
+    <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-success">Create New Device</button>
+          <a href="{{ url_for('getDevices') }}">Back to list</a>
+        </div>
+    </div>
+  </form>
+{% endblock %}
