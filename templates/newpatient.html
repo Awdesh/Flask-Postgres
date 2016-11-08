@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="" method=post class="form-horizontal">
+    <h2>Create New Device</h2>
+    <div class="control-group">
+        <div class="controls">
+          <label for="firstName" id="firstName">FirstName:</label>
+          <input type="text" id="firstName" name="firstName" class="input-xlarge"
+            placeholder="Please enter patient's first name" value="{{ request.form.firstName }}"
+            required>
+          <label for="lastName">LastName:</label>
+          <input type="text" id="lastName" name="lastName" class="input-xlarge"
+            placeholder="Please enter patient's last name" value="{{ request.form.lastName }}"
+            required>
+          <label for="title" id="title">Title:</label>
+          <input type="text" id="title" name="title" class="input-xlarge"
+            placeholder="Please enter patient's Title" value="{{ request.form.title }}"
+            required>
+          <label for="gender" id="gender">Gender:</label>
+          <input type="text" id="gender" name="gender" class="input-xlarge"
+            placeholder="Please enter patient's gender" value="{{ request.form.gender }}"
+            required>
+          <label for="address1" id="address1">Address:</label>
+          <input type="text" id="address1" name="address1" class="input-xlarge"
+            placeholder="Please enter patient's address1" value="{{ request.form.address1 }}"
+            required>
+        </div>
+    </div>
+ 
+    <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-success">Create New Patient</button>
+          <a href="{{ url_for('getPatients') }}">Back to list</a>
+        </div>
+    </div>
+  </form>
+{% endblock %}

@@ -12,6 +12,7 @@ body {
 <link href="/static/bootstrap-responsive.css" rel="stylesheet">
 <script src="/static/jquery.js"></script>
 <script src="/static/bootstrap.js"></script>
+
  
 <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
@@ -25,14 +26,17 @@ body {
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active"><a href="/">Device</a></li>
-                        <li><a href="/addDevice">New Device</a></li>
+                        <li><a href="/getPatients">Patient</a></li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
             </div>
         </div>
 </div>
- 
+
+{%- for message in get_flashed_messages() %}
+  <p> {{ message }}</p>
+{%- endfor %} 
 {%- for category, message in get_flashed_messages(with_categories=true) %}
   <p class="flask {{ category }}-flash">{{
     "Error: " if category == 'error' }}{{ message }}</p>
@@ -41,7 +45,6 @@ body {
     {% block body %}{% endblock %}
     <hr>
     <footer id="footer">
-                <p>Nexus Web App built using Flask, SQLAlchemy, PostgreSQL , and Twitter Bootstrap</p>
-                <!--<p><a href="https://www.openshift.com/" target="_blank"><img alt="Powered by OpenShift" src="https://www.openshift.com/sites/default/files/images/powered-transparent-black.png"></a></p>     -->
+        <p>Nexus Web App built using Flask, SQLAlchemy, PostgreSQL , and Twitter Bootstrap</p>
     </footer>
 </div>

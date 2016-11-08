@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
 <div id="main" class="container">
-    <h2>All Devices</h2>
+    <h2 class="searchDevice">Search a Device</h2>
+    <input type="text" name="searchDeviceIdentifier" value="{{ request.form.realm }}" placeholder="Please enter realm name"/>
+    <a href="{{ url_for("getDeviceByRealm", realm='us demo') }}" class="btn btn-success">Search Device</a>
+ 
     <table class="table table-hover">
       <tr>
         <th>IMEI
@@ -17,11 +20,7 @@
           <td>{{ device.realm }}</td>
         {%- endfor %}
       {% else %}
-       <tr class={{ "success" if device}}>
-        <td><a href="/devices/{{ device.id }}">{{ device.imei }}</a>
-        <td>{{ device.name }}</td>
-        <td>{{ device.serial }}</td>
-        <td>{{ device.realm }}</td>
+       <h2>No device</h2>
       {%endif%}
       </tr>
     </table>
@@ -31,3 +30,5 @@
  
 </div>
 {% endblock %}
+
+<!--<a href="/devices/{{ device.id }}" value="{{ request.form.imei }}"></a>-->

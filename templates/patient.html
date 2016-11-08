@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<link href="/static/index.css" rel="stylesheet">
+<div id="main" class="container">
+    <h2 class="searchPatient">Search a Patient</h2>
+    <input type="text" name="searchPatientIdentifier" placeholder="Please enter patient's name"/>
+    <a href="{{ url_for("getDeviceByRealm", realm='us demo') }}" class="btn btn-success">Search Patient</a>
+    
+    <table class="table table-hover">
+      <tr>
+        <th>Title
+        <th>Name
+        <th>Gender
+        <th>Address
+      {% if patients %}  
+        {%- for patient in patients %}
+        <tr class={{ "success" if patient}}>
+          <td>{{ patient.title }}</td>
+          <td>{{ patient.first_name }}</td>
+          <td>{{ patient.gender }}</td>
+          <td>{{ patient.address1 }}</td>
+        {%- endfor %}
+      {%endif%}
+      </tr>
+    </table>
+    <p>
+      <a href="{{ url_for('addPatient') }}" class="btn btn-large btn-primary">New Patient</a>
+ 
+ 
+</div>
+{% endblock %}
